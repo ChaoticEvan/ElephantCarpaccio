@@ -36,9 +36,6 @@ void UserInput::collectUserInput()
 void UserInput::collectQuantity()
 {
     cout << "Please enter quantity of items" << endl;
-
-    // TODO: Turn error checking into a method to avoid code duplication, if possible
-    // Maybe pass variable storage address, then `cin >> addrOfVar`. Do addreses check var type?
     if (!(cin >> input.quantity))
     {
         std::cerr << "ERROR: Value you entered for item quantity could not be converted to an int" << endl;
