@@ -4,6 +4,8 @@
 
 using namespace std;
 
+// CONSTRUCTORS
+
 /**
  * Construct a UserInput object and setup default values for struct
  */
@@ -13,6 +15,8 @@ UserInput::UserInput()
     input.cost = 0.0;
     input.stateCd = "";
 }
+
+// PUBLIC METHODS
 
 /**
  * Driver function to collect all user input
@@ -24,15 +28,21 @@ void UserInput::collectUserInput()
     this->collectStateCd();
 }
 
+// PRIVATE METHODS
+
 /**
  * Method to collect quantity of items
  */
 void UserInput::collectQuantity()
 {
     cout << "Please enter quantity of items" << endl;
-    // TODO: Error check input
-    cin >> input.quantity;
-    // TODO: Reword this echo line
+
+    // TODO: Turn error checking into a method to avoid code duplication, if possible
+    // Maybe pass variable storage address, then `cin >> addrOfVar`. Do addreses check var type?
+    if (!(cin >> input.quantity))
+    {
+        std::cerr << "ERROR: Value you entered for item quantity could not be converted to an int" << endl;
+    }
     cout << "You entered " << input.quantity << " items" << endl;
     return;
 }
@@ -43,9 +53,10 @@ void UserInput::collectQuantity()
 void UserInput::collectCost()
 {
     cout << "Please enter cost of item" << endl;
-    // TODO: Error check input
-    cin >> input.cost;
-    // TODO: Reword this echo line
+    if (!(cin >> input.cost))
+    {
+        std::cerr << "ERROR: Value you entered for cost of 1 item could not be converted to a double" << endl;
+    }
     cout << "You entered " << input.cost << " for the cost of 1 item" << endl;
     return;
 }
@@ -56,9 +67,10 @@ void UserInput::collectCost()
 void UserInput::collectStateCd()
 {
     cout << "Please enter 2 letter state code" << endl;
-    // TODO: Error check input
-    cin >> input.stateCd;
-    // TODO: Reword this echo line
+    if (!(cin >> input.stateCd))
+    {
+        std::cerr << "ERROR: Value you entered for 2 letter state code not be converted to a string" << endl;
+    }
     cout << "You entered " << input.stateCd << " for your state" << endl;
     return;
 }
