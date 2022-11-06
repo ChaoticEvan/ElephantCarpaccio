@@ -4,15 +4,14 @@
 
 using namespace std;
 
-int quantity;
-double cost;
-string stateCd;
-
+/**
+ * Construct a UserInput object and setup default values for struct
+ */
 UserInput::UserInput()
 {
-    quantity = 0;
-    cost = 0.0;
-    stateCd = "";
+    input.quantity = 0;
+    input.cost = 0.0;
+    input.stateCd = "";
 }
 
 /**
@@ -20,8 +19,8 @@ UserInput::UserInput()
  */
 void UserInput::collectUserInput()
 {
-    this->collectCost();
     this->collectQuantity();
+    this->collectCost();
     this->collectStateCd();
 }
 
@@ -32,9 +31,9 @@ void UserInput::collectQuantity()
 {
     cout << "Please enter quantity of items" << endl;
     // TODO: Error check input
-    cin >> quantity;
+    cin >> input.quantity;
     // TODO: Reword this echo line
-    cout << "You entered " << quantity << " items" << endl;
+    cout << "You entered " << input.quantity << " items" << endl;
     return;
 }
 
@@ -45,9 +44,9 @@ void UserInput::collectCost()
 {
     cout << "Please enter cost of item" << endl;
     // TODO: Error check input
-    cin >> cost;
+    cin >> input.cost;
     // TODO: Reword this echo line
-    cout << "You entered " << cost << " for the cost of 1 item" << endl;
+    cout << "You entered " << input.cost << " for the cost of 1 item" << endl;
     return;
 }
 
@@ -58,8 +57,8 @@ void UserInput::collectStateCd()
 {
     cout << "Please enter 2 letter state code" << endl;
     // TODO: Error check input
-    cin >> stateCd;
+    cin >> input.stateCd;
     // TODO: Reword this echo line
-    cout << "You entered " << stateCd << " for your state" << endl;
+    cout << "You entered " << input.stateCd << " for your state" << endl;
     return;
 }
