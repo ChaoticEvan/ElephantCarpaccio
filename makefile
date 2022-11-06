@@ -4,7 +4,7 @@
 
 CC = g++
 CFLAGS =  -Wall -g
-SRCS = main.cpp
+SRCS = main.cpp userinput.cpp
 OBJS = $(SRCS:.cpp=.o) # Super helpful for converting .cpp to .o and not missing any
 TARG = main.exe
 LIBS = # Blank for now
@@ -17,6 +17,9 @@ $(TARG): $(OBJS)
 
 main.o:
 	$(CC) $(CFLAGS) -c main.cpp -o main.o
+
+userinput.o:
+	$(CC) $(CFLAGS) -c userinput.cpp -o userinput.o
 
 clean:
 	del -f $(OBJS) $(TARG) 
