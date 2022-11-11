@@ -3,8 +3,8 @@
 # Variables
 
 CC = g++
-CFLAGS =  -Wall -g
-SRCS = main.cpp userinput.cpp input.cpp
+CFLAGS = -Wall -g
+SRCS = main.cpp userinput.cpp input.cpp calculator.cpp
 OBJS = $(SRCS:.cpp=.o) # Super helpful for converting .cpp to .o and not missing any
 TARG = main.exe
 LIBS = # Blank for now
@@ -23,6 +23,9 @@ userinput.o:
 
 input.o: 
 	$(CC) $(CFLAGS) -c input.cpp -o input.o
+
+calculator.o:
+	$(CC) $(CFLAGS) -c calculator.cpp -o calculator.o
 
 clean:
 	del -f $(OBJS) $(TARG) 
